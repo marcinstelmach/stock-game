@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using StockGame.Infrastructure.Abstract;
 using StockGame.Web.Models;
 
@@ -19,11 +20,13 @@ namespace StockGame.Web.Controllers
             return View(model);
         }
 
-        public IActionResult Results(SelectorDataViewModel model)
+        public async Task<IActionResult> Results(SelectorDataViewModel model)
         {
             var dataReader = dataReaderFactory.CreateDataReader(model.DataType);
-            var response = dataReader.ReadDataAsync(model.From, model.To);
-            return Ok();
+            var response = await dataReader.ReadDataAsync(model.From, model.To);
+
+            var viewModel = new ResultsViewModel(model, response);
+            return View(viewModel);
         }
     }
 }
