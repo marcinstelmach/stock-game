@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using StockGame.Infrastructure.Abstract;
+using StockGame.Infrastructure.Concrete;
 using StockGame.Web.Models;
 
 namespace StockGame.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDataReaderFactory dataReaderFactory;
+
+        public HomeController(IDataReaderFactory dataReaderFactory)
+        {
+            this.dataReaderFactory = dataReaderFactory;
+        }
+
         public IActionResult Index()
         {
+            var factory = dataReaderFactory.CreateDataReader<ExchangeRatesDataReader>();
+
             return View();
         }
 

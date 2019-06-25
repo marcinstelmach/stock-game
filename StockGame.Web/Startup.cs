@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StockGame.Infrastructure;
 
 namespace StockGame.Web
 {
@@ -26,6 +27,7 @@ namespace StockGame.Web
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddInfrastructure(Configuration);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
