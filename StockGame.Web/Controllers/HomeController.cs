@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using StockGame.Infrastructure.Abstract;
 using StockGame.Infrastructure.Concrete;
 using StockGame.Web.Models;
@@ -18,19 +17,13 @@ namespace StockGame.Web.Controllers
         public IActionResult Index()
         {
             var factory = dataReaderFactory.CreateDataReader<ExchangeRatesDataReader>();
-
-            return View();
+            var model = new SelectorDataViewModel();
+            return View(model);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Results(SelectorDataViewModel model)
         {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return Ok();
         }
     }
 }

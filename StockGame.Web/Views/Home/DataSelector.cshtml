@@ -1,0 +1,27 @@
+﻿@model SelectorDataViewModel
+<div class="row">
+    <div class="col-6">
+        <form asp-controller="Home" asp-action="Results" method="post">
+            <div class="form-group row">
+                <label for="dataSelector" class="col-sm-3 col-form-label">Select Data</label>
+                <div class="col-sm-9">
+                    <select asp-for="DataType" asp-items="Model.DataTypes" class="form-control" id="dataSelector"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="from" class="col-sm-3 col-form-label">From</label>
+                <div class="col-sm-9">
+                    <input asp-for="From" class="form-control" id="from" type="date" value="@DateTime.Now.AddYears(-1)">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="To" class="col-sm-3 col-form-label">To</label>
+                <div class="col-sm-9">
+                    <input asp-for="To" class="form-control" id="To" type="date" value="@DateTime.Now">
+                </div>
+            </div>
+            
+            <input type="submit" class="btn btn-danger" value="Search"/>
+        </form>
+    </div>
+</div>
