@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace StockGame.Infrastructure.Abstract
 {
-    interface IDataReader
+    public interface IDataReader
     {
+        Task<IData> ReadDataAsync(DateTime from, DateTime to);
     }
 }
