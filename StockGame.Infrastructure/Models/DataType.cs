@@ -1,4 +1,4 @@
-﻿namespace StockGame.Web.Models
+﻿namespace StockGame.Infrastructure.Models
 {
     public enum DataType
     {

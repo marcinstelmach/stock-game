@@ -1,7 +1,12 @@
-﻿namespace StockGame.Infrastructure.Abstract
+﻿using System;
+using System.Collections.Generic;
+
+namespace StockGame.Infrastructure.Abstract
 {
     public interface IData
     {
-        // marker interface
+        string Name { get; set; }
+
+        IDictionary<DateTime, double> Rates { get; set; }
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace StockGame.Infrastructure.Abstract
+﻿using StockGame.Infrastructure.Models;
+
+namespace StockGame.Infrastructure.Abstract
 {
     public interface IDataReaderFactory
     {
-        IDataReader CreateDataReader<T>() where T : IDataReader;
+        IDataReader CreateDataReader(DataType dataType);
     }
 }

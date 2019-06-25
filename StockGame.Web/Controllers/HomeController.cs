@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StockGame.Infrastructure.Abstract;
-using StockGame.Infrastructure.Concrete;
 using StockGame.Web.Models;
 
 namespace StockGame.Web.Controllers
@@ -16,13 +15,14 @@ namespace StockGame.Web.Controllers
 
         public IActionResult Index()
         {
-            var factory = dataReaderFactory.CreateDataReader<ExchangeRatesDataReader>();
             var model = new SelectorDataViewModel();
             return View(model);
         }
 
         public IActionResult Results(SelectorDataViewModel model)
         {
+            var dataReader = dataReaderFactory.CreateDataReader(model.DataType);
+            var response = dataReader.ReadDataAsync(model.From, model.To);
             return Ok();
         }
     }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using StockGame.Infrastructure;
+using StockGame.Infrastructure.Models;
 
 namespace StockGame.Web.Models
 {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using StockGame.Infrastructure.Abstract;
+using StockGame.Infrastructure.Models;
 
 namespace StockGame.Infrastructure.Concrete
 {
@@ -26,9 +27,9 @@ namespace StockGame.Infrastructure.Concrete
         {
         }
 
-        public IDataReader CreateDataReader<T>() where T : IDataReader
+        public IDataReader CreateDataReader(DataType dataType)
         {
-            return dataReaders.First(s => s.GetType() == typeof(T));
+            return dataReaders.First(s => s.GetType() == dataType.GetReaderType());
         }
     }
 }
