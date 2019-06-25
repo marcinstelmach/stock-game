@@ -19,7 +19,7 @@ namespace StockGame.Infrastructure.Concrete
         public GoldRatesDataReader(IOptions<GoldRatesOptions> options, IHttpClientFactory httpClientFactory)
         {
             this.options = options.Value;
-            this.httpClient = httpClientFactory.CreateClient();
+            httpClient = httpClientFactory.CreateClient();
         }
 
         public async Task<IData> ReadDataAsync(DateTime from, DateTime to)
