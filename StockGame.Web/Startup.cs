@@ -5,8 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StockGame.Infrastructure;
-using StockGame.Infrastructure.Abstract;
-using StockGame.Infrastructure.Concrete;
 using StockGame.Infrastructure.Options;
 
 namespace StockGame.Web
@@ -32,6 +30,7 @@ namespace StockGame.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.Configure<GoldRatesOptions>(Configuration.GetSection("GoldRates"));
             services.Configure<ExchangeRatesOptions>(Configuration.GetSection("ExchangeRates"));
+            services.Configure<StockExchangeOptions>(Configuration.GetSection("StockExchange"));
             services.AddHttpClient();
             services.AddInfrastructure();
         }
