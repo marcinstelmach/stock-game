@@ -9,9 +9,16 @@
 <div class="text-center">
     <h1 class="display-4">Stock Game</h1>
     @await Html.PartialAsync("DataSelector", Model.SelectorDataViewModel)
+    
     <div class="row">
         <div class="col-12">
             <p>Results</p>
+            @if (Model.Income != 0)
+            {
+                <div class="col-12">
+                    Your income is: @Html.DisplayFor(s => s.Income)
+                </div>
+            }
             <div class="box-body">
                 <div class="chart-container">
                     <canvas id="chart" style="width: 100%; height: 500px"></canvas>

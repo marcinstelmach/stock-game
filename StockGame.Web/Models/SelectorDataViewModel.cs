@@ -14,6 +14,8 @@ namespace StockGame.Web.Models
 
         public DateTime To { get; set; }
 
+        public double StartAmount { get; set; }
+
         public List<SelectListItem> DataTypes { get; } = new List<SelectListItem>
         {
             new SelectListItem{ Value = ((int)DataType.ExchangeRates).ToString(), Text = DataType.ExchangeRates.GetName<DataType>()},

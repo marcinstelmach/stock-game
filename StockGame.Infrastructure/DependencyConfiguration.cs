@@ -12,6 +12,7 @@ namespace StockGame.Infrastructure
             services.AddScoped<IDataReader, GoldRatesDataReader>();
             services.AddScoped<IDataReader, StockExchangeDataReader>();
             services.AddSingleton<IDataReaderFactory>(HttpReaderFactory.Instance(services.BuildServiceProvider()));
+            services.AddScoped<ICalculator, MoneyCalculator>();
 
             return services;
         }
